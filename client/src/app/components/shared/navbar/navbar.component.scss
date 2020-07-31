@@ -1,0 +1,43 @@
+@import "../../../../scss/variables";
+
+a {
+  color: $light;
+  text-decoration: none;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+.navbar {
+  border-bottom: 1px $primary solid;
+  z-index: 2;
+  position: fixed;
+  width: 100%;
+}
+
+.nav-content {
+  @media screen and (min-width: 768px) {
+    position: absolute;
+  }
+}
+
+.btn-outline-primary {
+  border: 0px;
+  color: $dark;
+
+  &:hover {
+    border: 0px;
+    color: $black;
+  }
+}
+
+.navbar__items-responsive {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media screen and (max-width: 880px) {
+    display: block;
+  }
+}

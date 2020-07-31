@@ -1,0 +1,71 @@
+<app-header
+  *ngIf="template?.headerImgHero"
+  [imgSrc]="template.headerImgHero"
+  [headerTitle]="template.headerTitle"
+  [headerText]="template.headerText"
+  [headerInfo]="{ admin: admin, componentId: 'promotions' }"
+></app-header>
+
+<div class="container">
+  <div
+    class="d-flex justify-content-between align-items-start px-3 my-5 flex-column flex-md-row"
+    #imgsContainer
+  >
+    <app-img-overlay
+      *ngIf="template?.img1"
+      class="pointer img__responsive"
+      style="flex: 1;"
+      [img]="{
+        src: template.img1,
+        alt: 'À partager'
+      }"
+      [text]="{ title: 'À partager' }"
+      [imgOverlayInfo]="{ admin: admin, componentId: 'promotions' }"
+      (click)="openImage(0)"
+    ></app-img-overlay>
+    <app-img-overlay
+      *ngIf="template?.img2"
+      class="pointer img__responsive"
+      style="flex: 1;"
+      [img]="{
+        src: template.img2,
+        alt: 'C\'est ta fêtes'
+      }"
+      [text]="{ title: 'C\'est ta fêtes' }"
+      [imgOverlayInfo]="{ admin: admin, componentId: 'promotions' }"
+      (click)="openImage(1)"
+    ></app-img-overlay>
+    <app-img-overlay
+      *ngIf="template?.img3"
+      class="pointer img__responsive"
+      style="flex: 1;"
+      [img]="{
+        src: template.img3,
+        alt: 'Gratuit pour les enfants'
+      }"
+      [text]="{ title: 'Gratuit pour les enfants' }"
+      [imgOverlayInfo]="{ admin: admin, componentId: 'promotions' }"
+      (click)="openImage(2)"
+    ></app-img-overlay>
+    <app-img-overlay
+      *ngIf="template?.img4"
+      class="pointer img__responsive"
+      style="flex: 1;"
+      [img]="{
+        src: template.img4,
+        alt: 'Ladies Night'
+      }"
+      [text]="{ title: 'Ladies Night' }"
+      [imgOverlayInfo]="{ admin: admin, componentId: 'promotions' }"
+      (click)="openImage(3)"
+    ></app-img-overlay>
+  </div>
+</div>
+
+<ng-image-fullscreen-view
+  [images]="imageObject"
+  [imageIndex]="selectedImageIndex"
+  [show]="showFlag"
+  (close)="closeEventHandler()"
+>
+</ng-image-fullscreen-view>

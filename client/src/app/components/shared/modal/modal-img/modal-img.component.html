@@ -1,0 +1,61 @@
+<div class="modal-header">
+  <h4 class="modal-title">Changer l'image</h4>
+  <button
+    type="button"
+    class="close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div *ngIf="error" class="alert alert-dismissible alert-danger">
+    <button type="button" data-dismiss="alert" class="close">×</button
+    ><strong>Erreur</strong><br />Veuillez choisir une nouvelle image ou fermer
+    cette fenêtre.
+  </div>
+  <form [formGroup]="imgForm">
+    <label for="file-upload" class="btn btn-primary mb-0">Téléverser</label>
+    <input
+      type="file"
+      id="file-upload"
+      (change)="upload($event.target.files)"
+      accept="image/*"
+    />
+    <div *ngIf="imageUrl" class="mt-3">
+      <angular-cropper
+        #angularCropper
+        [cropperOptions]="config"
+        [imageUrl]="imageUrl"
+        [imgType]="imgType"
+      ></angular-cropper>
+      <div class="text-center">
+        <button class="btn btn-outline-dark" (click)="changeRatio('increase')">
+          + ratio
+        </button>
+        <button
+          class="btn btn-outline-dark mr-3"
+          (click)="changeRatio('decrease')"
+        >
+          - ratio
+        </button>
+        <button class="btn btn-outline-dark" (click)="changeToFullScreen()">
+          Complet
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-outline-dark"
+    (click)="activeModal.close('Close click')"
+  >
+    Close
+  </button>
+  <button type="button" class="btn btn-outline-primary" (click)="save()">
+    Sauvegarder
+  </button>
+</div>

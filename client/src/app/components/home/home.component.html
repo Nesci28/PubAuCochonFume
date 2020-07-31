@@ -1,0 +1,106 @@
+<app-header
+  *ngIf="template?.headerImgHero"
+  [imgSrc]="template.headerImgHero"
+  [headerTitle]="template.headerTitle"
+  [headerText]="template.headerText"
+  [headerInfo]="{ admin: admin, componentId: 'home' }"
+></app-header>
+
+<div class="container">
+  <div class="mb-5">
+    <div class="d-flex pointer" (click)="expandHours()">
+      <img
+        *ngIf="template?.openingHoursTitle"
+        [src]="expandHoursIcon"
+        alt="Plus"
+        height="20"
+        class="mr-3 svg_to-light"
+      />
+      <div
+        *ngIf="template?.openingHoursTitle"
+        id="openingHoursTitle"
+        appEdit
+        [editInfo]="{
+          id: 'openingHoursTitle',
+          admin: admin,
+          componentId: 'home',
+          data: template.openingHoursTitle
+        }"
+        [innerHTML]="template.openingHoursTitle"
+      ></div>
+    </div>
+    <div
+      *ngIf="expandHoursText && template?.openingHoursText"
+      class="hours"
+      style="font-size: 0.75rem;"
+      id="openingHoursText"
+      appEdit
+      [editInfo]="{
+        id: 'openingHoursText',
+        admin: admin,
+        componentId: 'home',
+        data: template.openingHoursText
+      }"
+      [innerHTML]="template.openingHoursText"
+    ></div>
+  </div>
+  <div class="mb-5">
+    <div
+      *ngIf="template?.descriptionTitle"
+      id="descriptionTitle"
+      appEdit
+      [editInfo]="{
+        id: 'descriptionTitle',
+        admin: admin,
+        componentId: 'home',
+        data: template.descriptionTitle
+      }"
+      [innerHTML]="template.descriptionTitle"
+    ></div>
+    <div
+      *ngIf="template?.descriptionText"
+      id="descriptionText"
+      appEdit
+      [editInfo]="{
+        id: 'descriptionText',
+        admin: admin,
+        componentId: 'home',
+        data: template.descriptionText
+      }"
+      [innerHTML]="template.descriptionText"
+    ></div>
+  </div>
+  <div *ngIf="template?.images">
+    <div
+      class="d-flex justify-content-between align-items-start px-3 my-5 flex-column flex-md-row"
+      #imgsContainer
+      *ngFor="let image of template?.images; let i = index"
+    >
+      <div
+        id="img{{ i }}"
+        appEdit
+        [editInfo]="{
+          id: 'img' + i,
+          admin: admin,
+          componentId: 'home'
+        }"
+      >
+        <img
+          [src]="image.image"
+          [alt]="image.alt"
+          [width]="imgWidth"
+          class="img img__responsive pointer"
+          (click)="openImage(i)"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-image-fullscreen-view
+  [images]="imageObject"
+  [imageIndex]="selectedImageIndex"
+  [show]="showFlag"
+  (close)="closeEventHandler()"
+>
+</ng-image-fullscreen-view>

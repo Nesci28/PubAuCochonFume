@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/bootstrap";
+@import "./scss/theme.scss";
+
+.svg {
+  &_to-primary {
+    filter: invert(68%) sepia(6%) saturate(3541%) hue-rotate(321deg)
+      brightness(96%) contrast(94%);
+  }
+  &_to-light {
+    filter: invert(93%) sepia(0%) saturate(631%) hue-rotate(141deg)
+      brightness(95%) contrast(79%);
+  }
+}
+
+.divider {
+  height: 1px;
+  width: 90%;
+  margin: auto;
+  &-primary {
+    background-color: $primary;
+  }
+  &-white {
+    background-color: $white;
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.img__responsive {
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.img {
+  &:hover {
+    transform: scale(1.2);
+    transition: ease-in-out 0.3s;
+  }
+}
+
+.w {
+  &-90 {
+    width: 90% !important;
+  }
+}

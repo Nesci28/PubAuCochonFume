@@ -1,0 +1,58 @@
+<div class="img-container">
+  <div
+    [id]="'imgOverlay' + hash"
+    appEdit
+    [editInfo]="{
+      id: 'imgOverlay' + hash,
+      admin: imgOverlayInfo?.admin,
+      componentId: imgOverlayInfo?.componentId
+    }"
+  >
+    <img
+      *ngIf="routerLinkStr"
+      [src]="img.src"
+      [alt]="img.alt"
+      class="pointer w-100 image"
+      [routerLink]="routerLinkStr"
+    />
+    <img
+      *ngIf="!routerLinkStr"
+      [src]="img.src"
+      [alt]="img.alt"
+      class="w-100 image"
+    />
+  </div>
+  <div class="middle">
+    <div class="text">
+      <div
+        class="w-100"
+        *ngIf="text.title"
+        [id]="'overlayTitle' + hash"
+        appEdit
+        [editInfo]="{
+          id: 'overlayTitle' + hash,
+          admin: imgOverlayInfo?.admin,
+          componentId: imgOverlayInfo?.componentId,
+          data: text.title
+        }"
+      >
+        <h2>{{ text.title }}</h2>
+      </div>
+      <div *ngIf="text.text" class="divider divider-white my-2"></div>
+      <div
+        class="w-100"
+        *ngIf="text.text"
+        [id]="'overlayText' + hash"
+        appEdit
+        [editInfo]="{
+          id: 'overlayText' + hash,
+          admin: imgOverlayInfo?.admin,
+          componentId: imgOverlayInfo?.componentId,
+          data: text.text
+        }"
+      >
+        <p class="text-white mb-0">{{ text.text }}</p>
+      </div>
+    </div>
+  </div>
+</div>

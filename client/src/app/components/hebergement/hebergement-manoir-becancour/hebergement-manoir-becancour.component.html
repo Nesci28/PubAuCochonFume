@@ -1,0 +1,154 @@
+<app-header
+  *ngIf="template?.headerImgHero"
+  [imgSrc]="template.headerImgHero"
+  [headerTitle]="template.headerTitle"
+  [headerText]="template.headerText"
+  [headerInfo]="{ admin: admin, componentId: 'hébergementManoirBécancour' }"
+></app-header>
+
+<div class="container">
+  <div
+    *ngIf="template?.description1"
+    id="description1"
+    appEdit
+    [editInfo]="{
+      id: 'description1',
+      admin: admin,
+      componentId: 'hébergementManoirBécancour',
+      data: template.description1
+    }"
+    [innerHTML]="template.description1"
+  ></div>
+  <div
+    *ngIf="template?.description2"
+    id="description2"
+    appEdit
+    [editInfo]="{
+      id: 'description2',
+      admin: admin,
+      componentId: 'hébergementManoirBécancour',
+      data: template.description2
+    }"
+    [innerHTML]="template.description2"
+  ></div>
+  <div
+    *ngIf="template?.phoneText"
+    id="phoneText"
+    appEdit
+    [editInfo]="{
+      id: 'phoneText',
+      admin: admin,
+      componentId: 'hébergementManoirBécancour',
+      data: template.phoneText
+    }"
+    [innerHTML]="template.phoneText"
+  ></div>
+  <div
+    *ngIf="template?.emailText"
+    id="emailText"
+    appEdit
+    [editInfo]="{
+      id: 'emailText',
+      admin: admin,
+      componentId: 'hébergementManoirBécancour',
+      data: template.emailText
+    }"
+    [innerHTML]="template.emailText"
+  ></div>
+  <div
+    *ngIf="template?.addressText"
+    id="addressText"
+    appEdit
+    [editInfo]="{
+      id: 'addressText',
+      admin: admin,
+      componentId: 'hébergementManoirBécancour',
+      data: template.addressText
+    }"
+    [innerHTML]="template.addressText"
+  ></div>
+  <div
+    *ngIf="template?.webText"
+    id="webText"
+    appEdit
+    [editInfo]="{
+      id: 'webText',
+      admin: admin,
+      componentId: 'hébergementManoirBécancour',
+      data: template.webText
+    }"
+    [innerHTML]="template.webText"
+  ></div>
+  <div class="mt-5">
+    <div class="d-flex flex-wrap w-100">
+      <img
+        src="../../../../assets/img/manoirbecancour/1.jpg"
+        alt="Manoir Bécancour 1"
+        class="img img__responsive pointer"
+        (click)="openImage(0)"
+      />
+      <img
+        src="../../../../assets/img/manoirbecancour/2.jpg"
+        alt="Manoir Bécancour 2"
+        class="img img__responsive pointer"
+        (click)="openImage(1)"
+      />
+      <img
+        src="../../../../assets/img/manoirbecancour/3.jpg"
+        alt="Manoir Bécancour 3"
+        class="img img__responsive pointer"
+        (click)="openImage(2)"
+      />
+      <img
+        src="../../../../assets/img/manoirbecancour/4.jpg"
+        alt="Manoir Bécancour 4"
+        class="img img__responsive pointer"
+        (click)="openImage(3)"
+      />
+      <img
+        src="../../../../assets/img/manoirbecancour/5.jpg"
+        alt="Manoir Bécancour 5"
+        class="img img__responsive pointer"
+        (click)="openImage(4)"
+      />
+      <img
+        src="../../../../assets/img/manoirbecancour/6.jpg"
+        alt="Manoir Bécancour 6"
+        class="img img__responsive pointer"
+        (click)="openImage(5)"
+      />
+      <img
+        src="../../../../assets/img/manoirbecancour/7.jpg"
+        alt="Manoir Bécancour 7"
+        class="img img__responsive pointer"
+        (click)="openImage(6)"
+      />
+      <img
+        src="../../../../assets/img/manoirbecancour/8.jpg"
+        alt="Manoir Bécancour 8"
+        class="img img__responsive pointer"
+        (click)="openImage(7)"
+      />
+      <img
+        src="../../../../assets/img/manoirbecancour/9.jpg"
+        alt="Manoir Bécancour 9"
+        class="img img__responsive pointer"
+        (click)="openImage(8)"
+      />
+      <img
+        src="../../../../assets/img/manoirbecancour/10.jpg"
+        alt="Manoir Bécancour 10"
+        class="img img__responsive pointer"
+        (click)="openImage(9)"
+      />
+    </div>
+  </div>
+</div>
+
+<ng-image-fullscreen-view
+  [images]="imageObject"
+  [imageIndex]="selectedImageIndex"
+  [show]="showFlag"
+  (close)="closeEventHandler()"
+>
+</ng-image-fullscreen-view>

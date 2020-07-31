@@ -1,0 +1,15 @@
+.img__responsive {
+  display: block;
+  margin-bottom: 1rem;
+
+  @media screen and (min-width: 768px) {
+    width: calc(50% - 8px);
+    &:nth-child(odd) {
+      margin-right: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+}

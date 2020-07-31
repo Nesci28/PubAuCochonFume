@@ -1,0 +1,62 @@
+<app-header
+  *ngIf="template?.headerImgHero"
+  [imgSrc]="template.headerImgHero"
+  [headerTitle]="template.headerTitle"
+  [headerText]="template.headerText"
+  [headerInfo]="{ admin: admin, componentId: 'hébergement' }"
+></app-header>
+
+<div class="container">
+  <div
+    *ngIf="template?.phoneText"
+    id="phoneText"
+    appEdit
+    [editInfo]="{
+      id: 'phoneText',
+      admin: admin,
+      componentId: 'hébergement',
+      data: template.phoneText
+    }"
+    [innerHTML]="template.phoneText"
+  ></div>
+  <div
+    *ngIf="template?.emailText"
+    id="emailText"
+    appEdit
+    [editInfo]="{
+      id: 'emailText',
+      admin: admin,
+      componentId: 'hébergement',
+      data: template.emailText
+    }"
+    [innerHTML]="template.emailText"
+  ></div>
+
+  <div
+    class="d-flex justify-content-between align-items-start px-3 my-5 flex-column flex-md-row"
+    #imgsContainer
+  >
+    <app-img-overlay
+      *ngIf="template?.img1"
+      style="flex: 1;"
+      [img]="{
+        src: template.img1,
+        alt: 'Manoir Bécancour'
+      }"
+      [text]="{ title: 'Manoir Bécancour', text: 'Hébergement distingué' }"
+      [routerLinkStr]="'manoir-becancour'"
+      [imgOverlayInfo]="{ admin: admin, componentId: 'hébergement' }"
+    ></app-img-overlay>
+    <app-img-overlay
+      *ngIf="template?.img2"
+      style="flex: 1;"
+      [img]="{
+        src: template.img2,
+        alt: 'Hébert Hotel'
+      }"
+      [text]="{ title: 'Hébert Hotel', text: 'De bon goût et abordable' }"
+      [routerLinkStr]="'hebert-hotel'"
+      [imgOverlayInfo]="{ admin: admin, componentId: 'hébergement' }"
+    ></app-img-overlay>
+  </div>
+</div>

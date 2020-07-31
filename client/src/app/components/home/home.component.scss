@@ -1,0 +1,15 @@
+@import "../../../scss/variables";
+
+.hero-banner {
+  width: 100%;
+  height: auto;
+}
+
+:host ::ng-deep ul {
+  padding-left: 1rem;
+}
+
+:host ::ng-deep ul,
+:host ::ng-deep li {
+  color: $light;
+}

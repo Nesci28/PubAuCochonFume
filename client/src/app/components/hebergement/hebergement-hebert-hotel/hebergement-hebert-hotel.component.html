@@ -1,0 +1,114 @@
+<app-header
+  *ngIf="template?.headerImgHero"
+  [imgSrc]="template.headerImgHero"
+  [headerTitle]="template.headerTitle"
+  [headerText]="template.headerText"
+  [headerInfo]="{ admin: admin, componentId: 'hébergementHotelHébert' }"
+></app-header>
+
+<div class="container">
+  <div
+    *ngIf="template?.description1"
+    id="description1"
+    appEdit
+    [editInfo]="{
+      id: 'description1',
+      admin: admin,
+      componentId: 'hébergementHotelHébert',
+      data: template.description1
+    }"
+    [innerHTML]="template.description1"
+  ></div>
+  <div
+    *ngIf="template?.description2"
+    id="description2"
+    appEdit
+    [editInfo]="{
+      id: 'description2',
+      admin: admin,
+      componentId: 'hébergementHotelHébert',
+      data: template.description2
+    }"
+    [innerHTML]="template.description2"
+  ></div>
+  <div
+    *ngIf="template?.description3"
+    id="description3"
+    appEdit
+    [editInfo]="{
+      id: 'description3',
+      admin: admin,
+      componentId: 'hébergementHotelHébert',
+      data: template.description3
+    }"
+    [innerHTML]="template.description3"
+  ></div>
+  <div
+    *ngIf="template?.phoneText"
+    id="phoneText"
+    appEdit
+    [editInfo]="{
+      id: 'phoneText',
+      admin: admin,
+      componentId: 'hébergementHotelHébert',
+      data: template.phoneText
+    }"
+    [innerHTML]="template.phoneText"
+  ></div>
+  <div
+    *ngIf="template?.emailText"
+    id="emailText"
+    appEdit
+    [editInfo]="{
+      id: 'emailText',
+      admin: admin,
+      componentId: 'hébergementHotelHébert',
+      data: template.emailText
+    }"
+    [innerHTML]="template.emailText"
+  ></div>
+  <div
+    *ngIf="template?.addressText"
+    id="addressText"
+    appEdit
+    [editInfo]="{
+      id: 'addressText',
+      admin: admin,
+      componentId: 'hébergementHotelHébert',
+      data: template.addressText
+    }"
+    [innerHTML]="template.addressText"
+  ></div>
+
+  <div class="mt-5">
+    <div
+      *ngFor="let image of template?.images; let i = index"
+      class="d-flex flex-wrap w-100"
+    >
+      <div
+        id="img{{ i }}"
+        appEdit
+        [editInfo]="{
+          id: 'img' + i,
+          admin: admin,
+          componentId: 'home'
+        }"
+      >
+        <img
+          [src]="image.image"
+          [alt]="image.alt"
+          class="img img__responsive pointer"
+          (click)="openImage(i)"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-image-fullscreen-view
+  [images]="imageObject"
+  [imageIndex]="selectedImageIndex"
+  [show]="showFlag"
+  (close)="closeEventHandler()"
+>
+</ng-image-fullscreen-view>

@@ -1,0 +1,53 @@
+.card {
+  background-color: $dark;
+}
+
+.border {
+  &-primary {
+    border: $primary 1px solid !important;
+    background-color: $dark !important;
+    color: $light !important;
+  }
+
+  &-secondary {
+    border: $secondary 1px solid !important;
+    background-color: $dark !important;
+    color: $light !important;
+  }
+
+  &-info {
+    border: $info 1px solid !important;
+    background-color: $dark !important;
+    color: $light !important;
+  }
+
+  &-success {
+    border: $success 1px solid !important;
+    background-color: $dark !important;
+    color: $light !important;
+  }
+
+  &-warning {
+    border: $warning 1px solid !important;
+    background-color: $dark !important;
+    color: $light !important;
+  }
+
+  &-danger {
+    border: $danger 1px solid !important;
+    background-color: $dark !important;
+    color: $light !important;
+  }
+
+  &-dark {
+    border: $dark 1px solid !important;
+    background-color: $dark !important;
+    color: $light !important;
+  }
+
+  &-light {
+    border: $light 1px solid !important;
+    background-color: $dark !important;
+    color: $light !important;
+  }
+}

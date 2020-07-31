@@ -1,0 +1,34 @@
+<div class="footer">
+  <div
+    *ngIf="template?.footerImg"
+    id="footerImg"
+    appEdit
+    [editInfo]="{
+      id: 'footerImg',
+      admin: admin,
+      componentId: 'footer'
+    }"
+  >
+    <img
+      [src]="template.footerImg"
+      alt="Footer background"
+      width="100%"
+      height="100px"
+      class="position-absolute"
+      style="top: 0; z-index: -1;"
+    />
+  </div>
+  <div class="divider divider-primary mb-2 mt-4"></div>
+  <div
+    *ngIf="template?.footerText"
+    id="footerText"
+    appEdit
+    [editInfo]="{
+      id: 'footerText',
+      admin: admin,
+      componentId: 'footer',
+      data: template.footerText
+    }"
+    [innerHTML]="template.footerText"
+  ></div>
+</div>

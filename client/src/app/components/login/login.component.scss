@@ -1,0 +1,14 @@
+.input__box {
+  -webkit-box-shadow: 0px 0px 11px 10px rgba(238, 143, 122, 0.75);
+  -moz-box-shadow: 0px 0px 11px 10px rgba(238, 143, 122, 0.75);
+  box-shadow: 0px 0px 11px 10px rgba(238, 143, 122, 0.75);
+}
+
+input {
+  border: unset;
+}
+
+.btn {
+  border: unset;
+  transform: translateX(0px);
+}

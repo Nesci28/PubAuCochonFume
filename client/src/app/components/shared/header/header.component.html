@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center align-items-center position-relative">
+  <div
+    id="headerImgHero"
+    appEdit
+    [editInfo]="{
+      id: 'headerImgHero',
+      admin: headerInfo?.admin,
+      componentId: headerInfo?.componentId
+    }"
+  >
+    <img *ngIf="imgSrc" [src]="imgSrc" alt="Herobanner" class="hero-banner" />
+  </div>
+  <div class="hero-text w-100">
+    <div
+      *ngIf="headerTitle"
+      id="headerTitle"
+      appEdit
+      [editInfo]="{
+        id: 'headerTitle',
+        admin: headerInfo?.admin,
+        componentId: headerInfo?.componentId,
+        data: headerTitle
+      }"
+    >
+      <h1>{{ headerTitle }}</h1>
+    </div>
+    <div
+      *ngIf="headerText"
+      id="headerText"
+      appEdit
+      [editInfo]="{
+        id: 'headerText',
+        admin: headerInfo?.admin,
+        componentId: headerInfo?.componentId,
+        data: headerText
+      }"
+    ></div>
+    <p>{{ headerText }}</p>
+  </div>
+</div>
+
+<div class="divider divider-primary my-5"></div>

@@ -1,0 +1,77 @@
+<nav class="navbar navbar-expand-md navbar-primary">
+  <a
+    class="navbar-brand d-flex align-items-center mr-2 mb-0"
+    (click)="router.navigate(['/'])"
+  >
+    <img
+      src="../../../assets/icons/pork.svg"
+      alt="Logo"
+      class="svg_to-primary"
+      height="40"
+    />Acceuil
+  </a>
+  <div class="vertical-divider"></div>
+  <button
+    class="btn btn-primary navbar-toggler hidden-sm-up"
+    (click)="collapse1(true)"
+    [ngClass]="{ change: !_opened1 }"
+    data-target="#navbarsDefault"
+    aria-controls="navbarsDefault"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+  </button>
+  <div
+    [ngbCollapse]="_opened1"
+    class="collapse navbar-collapse"
+    id="navbarsDefault"
+    [ngStyle]="{ 'max-height.px': maxHeight1 }"
+  >
+    <div class="nav-content" #navContent1>
+      <ul class="navbar-nav mr-auto" ngbNav #nav="ngbNav" [activeId]="1">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="menu">Menu</a>
+        </li>
+        <li class="nav-item dropdown" ngbDropdown>
+          <a
+            class="nav-link dropdown-toggle"
+            id="dropdown04"
+            ngbDropdownToggle
+            (click)="collapse1(false)"
+            >Hébergement</a
+          >
+          <div
+            class="dropdown-menu"
+            aria-labelledby="dropdown04"
+            ngbDropdownMenu
+          >
+            <button
+              class="btn btn-outline-primary dropdown-item"
+              routerLink="hebergement/hebert-hotel"
+            >
+              Hébert Hotel
+            </button>
+            <button
+              class="btn btn-outline-primary dropdown-item"
+              routerLink="hebergement/manoir-becancour"
+            >
+              Manoir Bécancour
+            </button>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="promotions">Promotions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="notre-equipe">Notre équipe</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="contact">Nous joindre</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

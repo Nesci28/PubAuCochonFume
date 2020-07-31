@@ -1,0 +1,54 @@
+<app-header
+  *ngIf="template?.headerImgHero"
+  [imgSrc]="template.headerImgHero"
+  [headerTitle]="template.headerTitle"
+  [headerText]="template.headerText"
+  [headerInfo]="{ admin: admin, componentId: 'contact' }"
+></app-header>
+
+<div class="container">
+  <div
+    *ngIf="template?.phoneText"
+    id="phoneText"
+    appEdit
+    [editInfo]="{
+      id: 'phoneText',
+      admin: admin,
+      componentId: 'contact',
+      data: template.phoneText
+    }"
+    [innerHTML]="template.phoneText"
+  ></div>
+  <div
+    *ngIf="template?.emailText"
+    id="emailText"
+    appEdit
+    [editInfo]="{
+      id: 'emailText',
+      admin: admin,
+      componentId: 'contact',
+      data: template.emailText
+    }"
+    [innerHTML]="template.emailText"
+  ></div>
+  <div
+    *ngIf="template?.addressText"
+    id="addressText"
+    appEdit
+    [editInfo]="{
+      id: 'addressText',
+      admin: admin,
+      componentId: 'contact',
+      data: template.addressText
+    }"
+    [innerHTML]="template.addressText"
+  ></div>
+  <google-map
+    [width]="'100%'"
+    [height]="300"
+    [center]="center"
+    [options]="options"
+    [zoom]="zoom"
+  >
+  </google-map>
+</div>

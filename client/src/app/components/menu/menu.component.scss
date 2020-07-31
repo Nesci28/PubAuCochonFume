@@ -1,0 +1,35 @@
+@import "../../../scss/variables";
+
+ul {
+  list-style: none;
+  padding: 0px;
+}
+
+.btn-outline-primary {
+  border: transparent 1px solid;
+
+  @media screen and (min-width: 768px) {
+    width: 100%;
+  }
+}
+
+.menu__border {
+  @media screen and (min-width: 768px) {
+    border-right: 1px $primary solid;
+  }
+
+  @media screen and (max-width: 768px) {
+    border-bottom: 1px $primary solid;
+  }
+}
+
+ul li {
+  @media screen and (max-width: 768px) {
+    display: inline;
+    margin-right: 1rem;
+  }
+}
+
+.title {
+  color: $primary;
+}

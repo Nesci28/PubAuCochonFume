@@ -1,0 +1,29 @@
+<div
+  class="container d-flex justify-content-center align-items-center flex-column"
+  style="min-height: calc(100vh - 89px - 67px);"
+>
+  <img
+    src="../../../assets/img/barbecue-pig-png-pig-roast-clip-art-png-1600.webp"
+    alt="Login logo"
+    class="w-50 mb-3"
+  />
+  <div class="w-75 input__box">
+    <form [formGroup]="form">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Nom d'utilisateur"
+        formControlName="username"
+      />
+      <input
+        type="password"
+        class="form-control"
+        placeholder="Mot de passe"
+        formControlName="password"
+      />
+      <button class="btn btn-primary btn-block" (click)="login()">
+        Se connecter
+      </button>
+    </form>
+  </div>
+</div>
