@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { TemplatesService } from './services/templates.service';
 import { takeUntil } from 'rxjs/internal/operators/takeUntil';
 import { Component, OnInit } from '@angular/core';
@@ -17,9 +18,10 @@ export class AppComponent extends BaseComponent implements OnInit {
   constructor(
     private authService: AuthService,
     stateService: StateService,
-    templatesService: TemplatesService
+    templatesService: TemplatesService,
+    titleService: Title
   ) {
-    super(stateService, templatesService);
+    super(stateService, templatesService, titleService);
   }
 
   async ngOnInit(): Promise<void> {

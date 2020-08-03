@@ -24,6 +24,7 @@ export class HebergementComponent extends BaseComponent implements OnInit {
 
   ngOnInit(): void {
     super.ngOnInit();
+    this.setTitle('Hébergement');
     setTimeout(async () => {
       this.template = await this.getTemplate('hébergement');
       if (this.template?.data) {

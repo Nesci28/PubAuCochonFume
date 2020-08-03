@@ -13,6 +13,7 @@ export class HebergementManoirBecancourComponent extends ImgBaseComponent
 
   ngOnInit(): void {
     super.ngOnInit();
+    this.setTitle('Manoir Bécancour');
     setTimeout(async () => {
       this.template = await this.getTemplate('hébergementManoirBécancour');
       if (this.template?.data) {

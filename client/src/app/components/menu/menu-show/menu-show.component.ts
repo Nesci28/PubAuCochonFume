@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { TemplatesService } from './../../../services/templates.service';
 import { StateService } from './../../../services/state.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
@@ -13,13 +14,18 @@ export class MenuShowComponent extends BaseComponent
   zoom: string = 'auto';
   loading: boolean = true;
 
-  constructor(stateService: StateService, templatesService: TemplatesService) {
-    super(stateService, templatesService);
+  constructor(
+    stateService: StateService,
+    templatesService: TemplatesService,
+    titleService: Title
+  ) {
+    super(stateService, templatesService, titleService);
   }
 
   ngOnInit(): void {
     let timer: number;
     super.ngOnInit();
+    this.setTitle('Menu PDF');
     setTimeout(async () => {
       this.template = await this.getTemplate('menuShow');
       timer = setInterval(() => {

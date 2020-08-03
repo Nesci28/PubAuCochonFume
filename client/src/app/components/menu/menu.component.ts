@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { TemplatesService } from './../../services/templates.service';
 import { StateService } from './../../services/state.service';
 import { Router } from '@angular/router';
@@ -23,13 +24,15 @@ export class MenuComponent extends BaseComponent implements OnInit {
   constructor(
     private router: Router,
     stateService: StateService,
-    templatesService: TemplatesService
+    templatesService: TemplatesService,
+    titleService: Title
   ) {
-    super(stateService, templatesService);
+    super(stateService, templatesService, titleService);
   }
 
   ngOnInit(): void {
     super.ngOnInit();
+    this.setTitle('Menu');
     setTimeout(async () => {
       this.template = await this.getTemplate('menu');
       if (this.template?.data) {

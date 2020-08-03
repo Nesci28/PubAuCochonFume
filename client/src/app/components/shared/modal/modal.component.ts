@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { TemplatesService } from './../../../services/templates.service';
 import { EditObject } from './../../../interfaces/editObject.interface';
 import { Directive } from '@angular/core';
@@ -14,9 +15,10 @@ export class ModalComponent extends BaseComponent {
   constructor(
     public activeModal: NgbActiveModal,
     stateService: StateService,
-    templatesService: TemplatesService
+    templatesService: TemplatesService,
+    titleService: Title
   ) {
-    super(stateService, templatesService);
+    super(stateService, templatesService, titleService);
   }
 
   async save(data: any): Promise<void> {

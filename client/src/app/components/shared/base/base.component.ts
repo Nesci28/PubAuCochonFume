@@ -1,8 +1,10 @@
-import { TemplatesService } from './../../../services/templates.service';
-import { takeUntil } from 'rxjs/internal/operators/takeUntil';
-import { StateService } from './../../../services/state.service';
-import { OnDestroy, Directive, OnInit } from '@angular/core';
+import { Directive, OnDestroy, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/internal/operators/takeUntil';
+
+import { StateService } from './../../../services/state.service';
+import { TemplatesService } from './../../../services/templates.service';
 
 @Directive()
 export abstract class BaseComponent implements OnInit, OnDestroy {
@@ -14,7 +16,8 @@ export abstract class BaseComponent implements OnInit, OnDestroy {
 
   constructor(
     public stateService: StateService,
-    public templatesService: TemplatesService
+    public templatesService: TemplatesService,
+    public titleService: Title
   ) {}
 
   ngOnInit(): void {
@@ -31,5 +34,10 @@ export abstract class BaseComponent implements OnInit, OnDestroy {
 
   async getTemplate(componentId: string): Promise<any> {
     return this.templatesService.getTemplate(componentId);
+  }
+
+  setTitle(title: string): void {
+    const currentTitle = this.titleService.getTitle().split('|')[0];
+    this.titleService.setTitle(`${currentTitle} | ${title}`);
   }
 }

@@ -11,6 +11,7 @@ export class PromotionsComponent extends ImgBaseComponent implements OnInit {
 
   ngOnInit(): void {
     super.ngOnInit();
+    this.setTitle('Promotions');
     setTimeout(async () => {
       this.template = await this.getTemplate('promotions');
       if (this.template?.data) {

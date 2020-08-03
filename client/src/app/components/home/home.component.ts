@@ -33,6 +33,7 @@ export class HomeComponent extends BaseComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     super.ngOnInit();
+    this.setTitle('Acceuil');
     setTimeout(async () => {
       this.template = await this.getTemplate('home');
       if (this.template?.data) {

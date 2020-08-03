@@ -22,6 +22,9 @@ export class ContactComponent extends BaseComponent {
     super.ngOnInit();
     setTimeout(async () => {
       this.template = await this.getTemplate('contact');
+      this.titleService.setTitle(
+        this.titleService.getTitle() + ' | Nous joindre'
+      );
       if (this.template?.data) {
         this.template = this.template.data;
       }

@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { TemplatesService } from './templates.service';
 import { Router } from '@angular/router';
 import { ToastService } from './toast.service';
@@ -18,9 +19,10 @@ export class AuthService extends BaseComponent {
     private toastService: ToastService,
     private router: Router,
     stateService: StateService,
-    templatesService: TemplatesService
+    templatesService: TemplatesService,
+    titleService: Title
   ) {
-    super(stateService, templatesService);
+    super(stateService, templatesService, titleService);
   }
 
   async login(username: string, password: string): Promise<void> {

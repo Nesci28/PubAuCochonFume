@@ -1,7 +1,6 @@
-import { TemplatesService } from './../../../services/templates.service';
-import { StateService } from './../../../services/state.service';
-import { ImgBaseComponent } from './../../shared/img-base/img-base.component';
 import { Component, OnInit } from '@angular/core';
+
+import { ImgBaseComponent } from './../../shared/img-base/img-base.component';
 
 @Component({
   selector: 'app-hebergement-hebert-hotel',
@@ -14,6 +13,7 @@ export class HebergementHebertHotelComponent extends ImgBaseComponent
 
   ngOnInit(): void {
     super.ngOnInit();
+    this.setTitle('Hébert Hotel');
     setTimeout(async () => {
       this.template = await this.getTemplate('hébergementHotelHébert');
       if (this.template?.data) {
