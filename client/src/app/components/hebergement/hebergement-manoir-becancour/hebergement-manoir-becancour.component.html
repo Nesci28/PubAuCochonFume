@@ -17,7 +17,7 @@
       componentId: 'hébergementManoirBécancour',
       data: template.description1
     }"
-    [innerHTML]="template.description1"
+    [innerHTML]="template.description1 | safe: 'html'"
   ></div>
   <div
     *ngIf="template?.description2"
@@ -29,7 +29,7 @@
       componentId: 'hébergementManoirBécancour',
       data: template.description2
     }"
-    [innerHTML]="template.description2"
+    [innerHTML]="template.description2 | safe: 'html'"
   ></div>
   <div
     *ngIf="template?.phoneText"
@@ -41,7 +41,7 @@
       componentId: 'hébergementManoirBécancour',
       data: template.phoneText
     }"
-    [innerHTML]="template.phoneText"
+    [innerHTML]="template.phoneText | safe: 'html'"
   ></div>
   <div
     *ngIf="template?.emailText"
@@ -53,7 +53,7 @@
       componentId: 'hébergementManoirBécancour',
       data: template.emailText
     }"
-    [innerHTML]="template.emailText"
+    [innerHTML]="template.emailText | safe: 'html'"
   ></div>
   <div
     *ngIf="template?.addressText"
@@ -65,7 +65,7 @@
       componentId: 'hébergementManoirBécancour',
       data: template.addressText
     }"
-    [innerHTML]="template.addressText"
+    [innerHTML]="template.addressText | safe: 'html'"
   ></div>
   <div
     *ngIf="template?.webText"
@@ -77,7 +77,7 @@
       componentId: 'hébergementManoirBécancour',
       data: template.webText
     }"
-    [innerHTML]="template.webText"
+    [innerHTML]="template.webText | safe: 'html'"
   ></div>
   <div class="mt-5">
     <div class="d-flex flex-wrap w-100">

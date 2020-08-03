@@ -4,7 +4,7 @@ export interface Menu {
 
 export interface SubMenu {
   info?: string;
-  img: string;
+  img?: string;
   title: string;
   meals: Meal[];
 }

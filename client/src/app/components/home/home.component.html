@@ -26,7 +26,7 @@
           componentId: 'home',
           data: template.openingHoursTitle
         }"
-        [innerHTML]="template.openingHoursTitle"
+        [innerHTML]="template.openingHoursTitle | safe: 'html'"
       ></div>
     </div>
     <div
@@ -41,7 +41,7 @@
         componentId: 'home',
         data: template.openingHoursText
       }"
-      [innerHTML]="template.openingHoursText"
+      [innerHTML]="template.openingHoursText | safe: 'html'"
     ></div>
   </div>
   <div class="mb-5">
@@ -55,7 +55,7 @@
         componentId: 'home',
         data: template.descriptionTitle
       }"
-      [innerHTML]="template.descriptionTitle"
+      [innerHTML]="template.descriptionTitle | safe: 'html'"
     ></div>
     <div
       *ngIf="template?.descriptionText"
@@ -67,7 +67,7 @@
         componentId: 'home',
         data: template.descriptionText
       }"
-      [innerHTML]="template.descriptionText"
+      [innerHTML]="template.descriptionText | safe: 'html'"
     ></div>
   </div>
   <div *ngIf="template?.images">

@@ -19,10 +19,11 @@ export class NavbarComponent {
     }
     if (!v) {
       await new Promise((resolve) => setTimeout(resolve, 0));
-      this.router.navigate(['/hebergement']);
     }
     this.maxHeight1 = !this._opened1
       ? this.navContent1.nativeElement.offsetHeight + 16
       : 0;
+
+    console.log('this.maxHeight1 :>> ', this.maxHeight1);
   }
 }

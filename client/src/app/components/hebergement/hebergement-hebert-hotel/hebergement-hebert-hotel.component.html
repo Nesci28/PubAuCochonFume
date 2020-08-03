@@ -17,7 +17,7 @@
       componentId: 'hébergementHotelHébert',
       data: template.description1
     }"
-    [innerHTML]="template.description1"
+    [innerHTML]="template.description1 | safe: 'html'"
   ></div>
   <div
     *ngIf="template?.description2"
@@ -29,19 +29,7 @@
       componentId: 'hébergementHotelHébert',
       data: template.description2
     }"
-    [innerHTML]="template.description2"
-  ></div>
-  <div
-    *ngIf="template?.description3"
-    id="description3"
-    appEdit
-    [editInfo]="{
-      id: 'description3',
-      admin: admin,
-      componentId: 'hébergementHotelHébert',
-      data: template.description3
-    }"
-    [innerHTML]="template.description3"
+    [innerHTML]="template.description2 | safe: 'html'"
   ></div>
   <div
     *ngIf="template?.phoneText"
@@ -53,7 +41,7 @@
       componentId: 'hébergementHotelHébert',
       data: template.phoneText
     }"
-    [innerHTML]="template.phoneText"
+    [innerHTML]="template.phoneText | safe: 'html'"
   ></div>
   <div
     *ngIf="template?.emailText"
@@ -65,7 +53,7 @@
       componentId: 'hébergementHotelHébert',
       data: template.emailText
     }"
-    [innerHTML]="template.emailText"
+    [innerHTML]="template.emailText | safe: 'html'"
   ></div>
   <div
     *ngIf="template?.addressText"
@@ -77,8 +65,21 @@
       componentId: 'hébergementHotelHébert',
       data: template.addressText
     }"
-    [innerHTML]="template.addressText"
+    [innerHTML]="template.addressText | safe: 'html'"
   ></div>
+  <div>
+    <div
+      class="fb-like"
+      data-href="https://www.facebook.com/pages/Hebert%20Hotels/2294438730598341/"
+      data-width=""
+      data-layout="button"
+      data-action="like"
+      data-size="large"
+      data-share="false"
+    ></div>
+    <!-- TODO: ADD INSTAGRAM -->
+    <p></p>
+  </div>
 
   <div class="mt-5">
     <div

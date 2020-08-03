@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 import { ModalComponent } from './../modal.component';
 
@@ -9,8 +8,6 @@ import { ModalComponent } from './../modal.component';
   styleUrls: ['./modal-text.component.scss'],
 })
 export class ModalTextComponent extends ModalComponent implements OnInit {
-  public Editor = ClassicEditor;
-
   text: string;
 
   ngOnInit(): void {

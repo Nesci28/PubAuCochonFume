@@ -49,8 +49,9 @@ export class EditDirective implements OnChanges {
       );
   }
 
-  edit(): void {
+  edit(): boolean {
     event.stopPropagation();
+    event.preventDefault();
     if (this.editInfo.id.toLowerCase().includes('img')) {
       const imgType = this.editInfo.id.toLowerCase().includes('hero')
         ? ImgType.HERO
@@ -70,12 +71,12 @@ export class EditDirective implements OnChanges {
         centered: true,
         backdrop: 'static',
       });
-      console.log('this.editInfo.data :>> ', this.editInfo.data);
       modalRef.componentInstance.info = {
         id: this.editInfo.id,
         componentId: this.editInfo.componentId,
         data: this.editInfo.data,
       };
     }
+    return false;
   }
 }

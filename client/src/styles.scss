@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/scss/bootstrap";
 @import "./scss/theme.scss";
+@import "~jsoneditor/dist/jsoneditor.min.css";
 
 .svg {
   &_to-primary {
@@ -46,4 +47,15 @@
   &-90 {
     width: 90% !important;
   }
+}
+
+.jsoneditor-popover,
+.jsoneditor-schema-error,
+div.jsoneditor td,
+div.jsoneditor textarea,
+div.jsoneditor th,
+div.jsoneditor-field,
+div.jsoneditor-value,
+pre.jsoneditor-preview {
+  color: blue;
 }

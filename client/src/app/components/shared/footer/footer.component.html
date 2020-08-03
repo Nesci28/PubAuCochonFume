@@ -29,6 +29,6 @@
       componentId: 'footer',
       data: template.footerText
     }"
-    [innerHTML]="template.footerText"
+    [innerHTML]="template.footerText | safe: 'html'"
   ></div>
 </div>

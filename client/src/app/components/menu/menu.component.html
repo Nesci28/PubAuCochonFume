@@ -1,122 +1,35 @@
 <app-header
-  [imgSrc]="'../../../assets/img/inner-banner.jpg'"
-  [headerTitle]="'Menu'"
+  *ngIf="template?.headerImgHero"
+  [imgSrc]="template.headerImgHero"
+  [headerTitle]="template.headerTitle"
+  [headerText]="template.headerText"
+  [headerInfo]="{ admin: admin, componentId: 'menu' }"
 ></app-header>
 
-<div class="container">
-  <!-- TODO: Fill routerLink -->
-  <a routerLink="" class="d-block text-right text-decoration-none"
-    ><h2 class="text-primary">Menu complet PDF</h2></a
-  >
+<div class="container" *ngIf="template && menu">
+  <div
+    *ngIf="template?.menuLinkText"
+    id="menuLinkText"
+    appEdit
+    [editInfo]="{
+      id: 'menuLinkText',
+      admin: admin,
+      componentId: 'menu',
+      data: template.menuLinkText
+    }"
+    [innerHTML]="template.menuLinkText | safe: 'html'"
+    (click)="goToMenu()"
+  ></div>
   <div class="row">
     <div class="col-md-4 menu__border">
       <ul>
-        <li>
+        <li *ngFor="let menuKey of menuKeys">
           <button
             class="btn-outline-primary mb-2"
-            [ngClass]="{ active: mealType === _MenuType.VIANDES }"
-            (click)="mealType = _MenuType.VIANDES"
+            [ngClass]="{ active: mealType === menuKey }"
+            (click)="mealType = menuKey"
           >
-            Viandes
-          </button>
-        </li>
-        <li>
-          <button
-            class="btn-outline-primary mb-2"
-            [ngClass]="{ active: mealType === _MenuType.SANDWICHS }"
-            (click)="mealType = _MenuType.SANDWICHS"
-          >
-            Sandwichs
-          </button>
-        </li>
-        <li>
-          <button
-            class="btn-outline-primary mb-2"
-            [ngClass]="{ active: mealType === _MenuType.SALADES }"
-            (click)="mealType = _MenuType.SALADES"
-          >
-            Salades
-          </button>
-        </li>
-        <li>
-          <button
-            class="btn-outline-primary mb-2"
-            [ngClass]="{ active: mealType === _MenuType.POUTINES }"
-            (click)="mealType = _MenuType.POUTINES"
-          >
-            Poutines
-          </button>
-        </li>
-        <li>
-          <button
-            class="btn-outline-primary mb-2"
-            [ngClass]="{ active: mealType === _MenuType.PORCHERIES }"
-            (click)="mealType = _MenuType.PORCHERIES"
-          >
-            Porcheries
-          </button>
-        </li>
-        <li>
-          <button
-            class="btn-outline-primary mb-2"
-            [ngClass]="{ active: mealType === _MenuType.POISSONS }"
-            (click)="mealType = _MenuType.POISSONS"
-          >
-            Poissons
-          </button>
-        </li>
-        <li>
-          <button
-            class="btn-outline-primary mb-2"
-            [ngClass]="{ active: mealType === _MenuType.PIZZASTHICK }"
-            (click)="mealType = _MenuType.PIZZASTHICK"
-          >
-            Pizzas à croûte épaisse
-          </button>
-        </li>
-        <li>
-          <button
-            class="btn-outline-primary mb-2"
-            [ngClass]="{ active: mealType === _MenuType.PIZZASTHIN }"
-            (click)="mealType = _MenuType.PIZZASTHIN"
-          >
-            Pizza à croûte mince
-          </button>
-        </li>
-        <li>
-          <button
-            class="btn-outline-primary mb-2"
-            [ngClass]="{ active: mealType === _MenuType.ENTREESSHARED }"
-            (click)="mealType = _MenuType.ENTREESSHARED"
-          >
-            Entrées à partager
-          </button>
-        </li>
-        <li>
-          <button
-            class="btn-outline-primary mb-2"
-            [ngClass]="{ active: mealType === _MenuType.ENTREES }"
-            (click)="mealType = _MenuType.ENTREES"
-          >
-            Entrées
-          </button>
-        </li>
-        <li>
-          <button
-            class="btn-outline-primary mb-2"
-            [ngClass]="{ active: mealType === _MenuType.BURGERS }"
-            (click)="mealType = _MenuType.BURGERS"
-          >
-            Burgers
-          </button>
-        </li>
-        <li>
-          <button
-            class="btn-outline-primary mb-2"
-            [ngClass]="{ active: mealType === _MenuType.BABY }"
-            (click)="mealType = _MenuType.BABY"
-          >
-            Bébé cochon
+            {{ menu[menuKey].title }}
           </button>
         </li>
       </ul>
@@ -133,8 +46,28 @@
         <p>{{ meal.text }}</p>
       </div>
     </div>
-    <div class="text-center w-100">
-      <img [src]="menu[mealType].img" alt="Menu" />
+    <div
+      class="w-100"
+      [id]="'img' + mealType"
+      appEdit
+      [editInfo]="{
+        id: 'img' + mealType,
+        admin: admin,
+        componentId: 'menu'
+      }"
+    >
+      <img
+        [src]="template.menuImgs[mealType]"
+        alt="Menu"
+        class="d-block m-auto"
+      />
     </div>
   </div>
+
+  <json-editor
+    *ngIf="admin"
+    [data]="menuCloned"
+    (change)="updateMenu($event)"
+  ></json-editor>
+  <button class="btn btn-info" (click)="save()">Sauvegarder</button>
 </div>
