@@ -64,10 +64,11 @@
     </div>
   </div>
 
-  <json-editor
-    *ngIf="admin"
-    [data]="menuCloned"
-    (change)="updateMenu($event)"
-  ></json-editor>
-  <button class="btn btn-info" (click)="save()">Sauvegarder</button>
+  <div *ngIf="admin">
+    <json-editor
+      [data]="menuCloned"
+      (change)="updateMenu($event)"
+    ></json-editor>
+    <button class="btn btn-info" (click)="save()">Sauvegarder</button>
+  </div>
 </div>

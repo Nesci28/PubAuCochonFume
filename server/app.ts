@@ -1,15 +1,16 @@
-import * as express from "express";
 import * as cors from "cors";
+import * as express from "express";
 import * as helmet from "helmet";
-import * as morgan from "morgan";
 import * as mongoose from "mongoose";
+import * as morgan from "morgan";
 
+import configs from "./configs/configs";
+import authController from "./controllers/auth.controller";
+import templatesController from "./controllers/templates.controller";
 import { handleError } from "./middlewares/errorHandler.middleware";
 import { handleResponse } from "./middlewares/responseHandler.middleware";
 
 // Configs
-import configs from "./configs/configs";
-
 // ENV
 require("dotenv").config();
 const DB_USERNAME = process.env.DB_USERNAME;
@@ -24,7 +25,12 @@ app.use(helmet());
 app.use(morgan("tiny"));
 
 // CORS
-app.use(cors({ origin: configs.CORS_URL }));
+app.use(
+  cors({
+    origin: configs.CORS_URL,
+    credentials: configs.CREDENTIALS,
+  })
+);
 
 // DB
 mongoose.set("useFindAndModify", false);
@@ -49,9 +55,6 @@ mongoose.connection.on("disconnected", () => {
 });
 
 // Routes
-import authController from "./controllers/auth.controller";
-import templatesController from "./controllers/templates.controller";
-
 // Routes
 app.use("/auth", authController);
 app.use("/templates", templatesController);

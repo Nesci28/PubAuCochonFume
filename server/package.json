@@ -2,12 +2,13 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "app.ts",
+  "main": "app.js",
   "scripts": {
     "start": "node .",
     "start:dev": "nodemon --config \"./util/nodemon.json\"/",
     "build": "tsc",
-    "deploy": "rimraf public && tsc && vercel --prod"
+    "deploy:dev": "rimraf public && tsc && vercel",
+    "deploy:prod": "rimraf public && tsc && vercel --prod"
   },
   "author": "Marc Gagnon",
   "license": "ISC",
@@ -30,6 +31,7 @@
     "@types/mongoose": "^5.7.32",
     "@types/morgan": "^1.9.1",
     "@types/node": "^14.0.26",
+    "@vercel/node": "^1.7.4",
     "nodemon": "^2.0.4",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.7"

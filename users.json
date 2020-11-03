@@ -1,0 +1,14 @@
+[{
+  "_id": {
+    "$oid": "5f1eea23907ce2114c63226b"
+  },
+  "username": "pubaucochonfume_admin",
+  "password": "$2b$10$PBO.mteNTvoWCtmFuDG1BuBFItn1FlRtcESAerho76tgdZPVGU6hO",
+  "createdAt": {
+    "$date": "2020-07-27T14:52:19.498Z"
+  },
+  "updatedAt": {
+    "$date": "2020-07-27T14:52:19.498Z"
+  },
+  "__v": 0
+}]

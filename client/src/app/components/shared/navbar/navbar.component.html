@@ -1,16 +1,4 @@
 <nav class="navbar navbar-expand-md navbar-primary">
-  <a
-    class="navbar-brand d-flex align-items-center mr-2 mb-0"
-    (click)="router.navigate(['/'])"
-  >
-    <img
-      src="../../../assets/icons/pork.svg"
-      alt="Logo"
-      class="svg_to-primary"
-      height="40"
-    />Acceuil
-  </a>
-  <div class="vertical-divider"></div>
   <button
     class="btn btn-primary navbar-toggler hidden-sm-up"
     (click)="collapse1(true)"
@@ -24,6 +12,21 @@
     <div class="bar2"></div>
     <div class="bar3"></div>
   </button>
+  <a
+    class="navbar-brand d-flex align-items-center mr-2 mb-0"
+    (click)="router.navigate(['/'])"
+  >
+    <img
+      src="../../../assets/icons/pork.svg"
+      alt="Logo"
+      class="svg_to-primary"
+      height="40"
+    />Acceuil
+  </a>
+  <a *ngIf="admin" class="nav-link" (click)="logout()">
+    Se déconnecter
+  </a>
+  <div class="vertical-divider"></div>
   <div
     [ngbCollapse]="_opened1"
     class="collapse navbar-collapse"
